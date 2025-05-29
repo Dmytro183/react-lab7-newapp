@@ -1,0 +1,45 @@
+.header {
+  position: relative;
+  background: #222;
+  color: white;
+  padding: 10px;
+}
+
+.burger {
+  cursor: pointer;
+  font-size: 24px;
+  display: none;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  padding-left: 0;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .burger {
+    display: block;
+  }
+
+  .nav {
+    display: none;
+    flex-direction: column;
+    background: #333;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    padding: 10px;
+  }
+
+  .nav.open {
+    display: flex;
+  }
+}
