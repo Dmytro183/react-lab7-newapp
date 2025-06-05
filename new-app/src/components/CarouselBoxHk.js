@@ -11,15 +11,15 @@ export default class CarouselBoxHk extends Component {
         <Carousel.Item>
           <img className="d-block w-100" src={Tyre1Img} alt="Ocean" />
           <Carousel.Caption>
-            <h3>Ocean image</h3>
-            <p>Цитата про море...</p>
+            <h3>nakolesah.net.ua — шини, диски та олива для твого авто!</h3>
+            <p>📦 Доставка по Україні</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img className="d-block w-100" src={Tyre2Img} alt="Mushrooms" />
           <Carousel.Caption>
-            <h3>Mushrooms image</h3>
-            <p>Цитата про гриби...</p>
+            <h3>📦 Доставка по Україні</h3>
+            <p>💧 Якісна моторна олива</p>
           </Carousel.Caption>
         </Carousel.Item>
           
