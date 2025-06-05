@@ -1,25 +1,48 @@
-import React from 'react';
-import { Container, Row, Col, Card, ListGroup } from 'react-bootstrap';
+import React from "react";
+import { Container, Row, Col, Card, Button, ListGroup } from "react-bootstrap";
 
 function Blog() {
   return (
-    <Container className="mt-5">
+    <Container className="mt-5 pt-5">
+      <h2 className="mb-4 text-center">Корисні поради та новини</h2>
       <Row>
+        {/* Основна частина блогу */}
         <Col md={9}>
-          <div className="d-flex align-items-center me-5">
-            <img width={150} height={150} src="https://..." alt="..." className="me-3" />
-            <div><h5>Blog Post</h5><p>Опис...</p></div>
-          </div>
-          {/* Додай інші пости */}
-        </Col>
-        <Col md={3}>
-          <h5 className="text-center mt-5">Категорії</h5>
-          <Card>
-            <ListGroup variant="flush">
-              <ListGroup.Item>Категорія 1</ListGroup.Item>
-              <ListGroup.Item>Категорія 2</ListGroup.Item>
-            </ListGroup>
+          {/* Пост 1 */}
+          <Card className="mb-4">
+            <Card.Img variant="top" src="https://images.pexels.com/photos/207573/pexels-photo-207573.jpeg" />
+            <Card.Body>
+              <Card.Title>Як вибрати зимову гуму?</Card.Title>
+              <Card.Text>
+                Вибір зимової шини — це безпека на дорозі. У статті розповідаємо, як обрати правильний розмір, індекс навантаження та малюнок протектора.
+              </Card.Text>
+              <Button variant="primary" href="/blog/post1">Читати далі</Button>
+            </Card.Body>
           </Card>
+
+          {/* Пост 2 */}
+          <Card className="mb-4">
+            <Card.Img variant="top" src="https://images.pexels.com/photos/1240891/pexels-photo-1240891.jpeg" />
+            <Card.Body>
+              <Card.Title>Новинки шин 2025 року</Card.Title>
+              <Card.Text>
+                Michelin, Continental та Goodyear вже представили нові моделі літньої гуми. Ми зібрали огляд найцікавіших новинок.
+              </Card.Text>
+              <Button variant="primary" href="/blog/post2">Читати далі</Button>
+            </Card.Body>
+          </Card>
+        </Col>
+
+        {/* Бокова колонка з категоріями */}
+        <Col md={3}>
+          <h5>Категорії</h5>
+          <ListGroup>
+            <ListGroup.Item action href="#winter">Зимові шини</ListGroup.Item>
+            <ListGroup.Item action href="#summer">Літні шини</ListGroup.Item>
+            <ListGroup.Item action href="#diski">Литі диски</ListGroup.Item>
+            <ListGroup.Item action href="#advices">Поради водіям</ListGroup.Item>
+            <ListGroup.Item action href="#tests">Тести шин</ListGroup.Item>
+          </ListGroup>
         </Col>
       </Row>
     </Container>
