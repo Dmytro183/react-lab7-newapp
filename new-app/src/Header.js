@@ -13,14 +13,36 @@ function Header() {
   const [show, setShow] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    setShow(false);
+    setError('');
+  };
+
   const handleShow = () => setShow(true);
+
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log("Email:", email);
-    console.log("Password:", password);
-    // Після валідації — відправка на бекенд або перевірка
+
+    // Валідація email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setError("Невірний формат email");
+      return;
+    }
+
+    // Валідація пароля
+    if (password.length < 6) {
+      setError("Пароль має містити щонайменше 6 символів");
+      return;
+    }
+
+    // Успіх
+    setError('');
+    alert(`Успішний вхід!\nEmail: ${email}`);
+    setEmail('');
+    setPassword('');
     handleClose();
   };
 
@@ -54,6 +76,13 @@ function Header() {
           <Modal.Title>Авторизація</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+          {/* Повідомлення про помилку */}
+          {error && (
+            <div className="alert alert-danger" role="alert">
+              {error}
+            </div>
+          )}
+
           <Form onSubmit={handleLogin}>
             <Form.Group controlId="formBasicEmail" className="mb-3">
               <Form.Label>Email</Form.Label>
