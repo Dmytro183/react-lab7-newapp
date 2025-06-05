@@ -10,21 +10,22 @@ function Contacts() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Email перевірка
+    // Кастомна перевірка email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email || !emailRegex.test(email)) {
-      setError("Будь ласка, введіть коректний email");
+      setError("Будь ласка, введіть правильний email. Наприклад: test@example.com");
       setSuccess(false);
       return;
     }
 
-    // Повідомлення перевірка
+    // Перевірка повідомлення
     if (!message || message.length < 10) {
       setError("Повідомлення має містити мінімум 10 символів");
       setSuccess(false);
       return;
     }
 
+    // Успішно
     setError('');
     setSuccess(true);
     alert(`Ваше повідомлення надіслано!\nEmail: ${email}\nПовідомлення: ${message}`);
@@ -43,11 +44,10 @@ function Contacts() {
         <Form.Group className="mb-3" controlId="formEmail">
           <Form.Label>Email</Form.Label>
           <Form.Control
-            type="email"
+            type="text"
             placeholder="Введіть ваш email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required
           />
         </Form.Group>
 
@@ -59,7 +59,6 @@ function Contacts() {
             placeholder="Ваше повідомлення..."
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            required
           />
         </Form.Group>
 
